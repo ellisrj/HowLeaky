@@ -15,15 +15,15 @@ namespace HowLeaky.ModelControllers
         public double Longitude { get { return InputModel.Longitude; } }
         [Output]
         public double Temperature { get; set; }
-        [Output("Daily rainfall amount as read directly from the P51 file", "mm", 1, AggregationTypeEnum.Sum) ]
+        [Output("Daily rainfall amount as read directly from the P51 file", "mm", 1, AggregationTypeEnum.Sum, 1050)]
         public double Rain { get; set; }  
-        [Output("Daily max temperature as read directly from the P51 file.", "oC")]
+        [Output("Daily max temperature as read directly from the P51 file.", "oC", 1052)]
         public double MaxTemp { get; set; } 
-        [Output("Daily min temperature as read directly from the P51 file.", "oC")]
+        [Output("Daily min temperature as read directly from the P51 file.", "oC", 1051)]
         public double MinTemp { get; set; }
-        [Output("Daily pan evaporation as read directly from the P51 file.", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("Daily pan evaporation as read directly from the P51 file.", "mm", 1, AggregationTypeEnum.Sum, 1053)]
         public double PanEvap { get; set; }
-        [Output(" Daily solar radition as read directly from the P51 file.", "MJ/m2/day")]
+        [Output(" Daily solar radition as read directly from the P51 file.", "MJ/m2/day", 1054)]
         public double SolarRadiation { get; set; }
 
         public double YesterdaysRain { get; set; }

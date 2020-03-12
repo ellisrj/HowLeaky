@@ -77,7 +77,7 @@ namespace HowLeaky.ModelControllers.Outputs
         {
             base.PrepareVariableNamesForOutput();
 
-            List<string> outputHeaders = new List<string>(Outputs.Select(x => x.Name));
+            List<string> outputHeaders = new List<string>(Outputs.Where(x => x.IsSelected == true).Select(x => x.Name));
 
             //outputHeaders.Insert(0, "Date");
 

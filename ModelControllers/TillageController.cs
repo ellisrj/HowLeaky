@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using HowLeaky.ModelControllers.Tillage;
+using HowLeaky.CustomAttributes;
 
 namespace HowLeaky.ModelControllers
 {
@@ -12,6 +13,8 @@ namespace HowLeaky.ModelControllers
     {
         public int DaysSinceTillage { get; set; }
         public double RoughnessRatio { get; set; }
+
+        [Output("Reduction in Residue from Tillage", "", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop, 2006)]
         public double TillageResidueReduction { get; set; }
 
         public int TillageCount

@@ -29,6 +29,13 @@ namespace HowLeaky
         public List<Simulation> Simulations { get; set; }
         //Xml Simulation elements for lazy loading the simualtions
         public List<XElement> SimulationElements { get; set; }
+
+        //Xml batch configuration elements from hlk
+        public List<XElement> BatchConfigElements { get; set; }
+
+        public List<BatchConfiguration> BatchConfigurations { get; set; }
+        public int BatchConfigIndex = -1;
+
         //Base input data models from the parameter files
         public List<InputModel> InputDataModels { get; set; }
 
@@ -65,6 +72,7 @@ namespace HowLeaky
         public bool WriteYearlyData = false;
 
         public bool QuietOutput = false;
+
 
         /// <summary>
         /// Need default constructor for populating via Entity Framework 
@@ -123,7 +131,7 @@ namespace HowLeaky
             {
                 List<InputModel> simModels = SimInputModelFactory.GenerateSimInputModels(xe, InputDataModels);
 
-                Simulation sim = new Simulation(this, simModels);
+                Simulation sim = new Simulation(this, Convert.ToInt32(xe.Attribute("ID").Value.ToString()), simModels);
             }
         }
 
@@ -474,7 +482,7 @@ namespace HowLeaky
                     TypeElements.Add(xe);
                 }
             }
-            //Read all of the simualtions
+            //Read all of the simulations
             SimulationElements = new List<XElement>();
 
             foreach (XElement simChild in projectElement.Elements("Simulations").Elements())
@@ -527,6 +535,71 @@ namespace HowLeaky
             }
 
             OutputDataElements = OutputModelController.GetProjectOutputs(this);
+
+            //Read all of the BatchConfigurations
+            BatchConfigElements = new List<XElement>();
+            BatchConfigurations = new List<BatchConfiguration>();
+
+            foreach (XElement BCE in projectElement.Elements("BatchConfigurations").Elements())
+            {
+                //foreach (XElement xe in ClimateDatalements)
+                //{
+                //ClimateInputModel cim = new ClimateInputModel();
+                int theIdx = Convert.ToInt32(BCE.Attribute("ID").Value);
+                int theFormatIndex = Convert.ToInt32(BCE.Attribute("FormatIndex").Value);
+
+                string theBatchPath = BCE.Attribute("path").Value.ToString().Replace("\\", "/");
+
+                char QuoteCharacter = '"';
+
+                BatchConfiguration BC = new BatchConfiguration(theIdx, theBatchPath, theFormatIndex);
+
+                if (BC.path.Contains("./"))
+                {
+                    BC.path = (Path.GetDirectoryName(FileName).Replace("\\", "/") + "/" + BC.path);
+                }
+
+                //InputDataModels.Add(cim);
+                //}
+                foreach (XElement BCchild in BCE.Elements())
+                {
+                    if (BCchild.Name.ToString() == "Simulations")
+                    {
+
+                        string toTest = "";
+                        if(BCchild.Attribute("Simulations") != null)
+                        {
+                            toTest = BCchild.Attribute("Simulations").Value.ToString().Trim(QuoteCharacter);
+                        }
+                        else
+                        {
+                            toTest = BCchild.Value.ToString();
+                        }
+
+                        string[] rawElements = toTest.Split(',');
+
+                        BC.Simulations = new List<int>();
+                        foreach(string simNum in rawElements)
+                        {
+                            BC.Simulations.Add(Convert.ToInt32(simNum));
+                        }
+
+                    }
+                    else if (BCchild.Name.ToString() == "TimeSeriesOutputs")
+                    {
+                        //string[] rawElements = BCchild.Attribute("TimeSeriesOutputs").Value.ToString().Trim(QuoteCharacter).Split(',');
+                        string[] rawElements = BCchild.Value.ToString().Trim(QuoteCharacter).Split(',');
+                        BC.TimeSeriesOutputs = new List<int>();
+                        foreach (string outNum in rawElements)
+                        {
+                            BC.TimeSeriesOutputs.Add(Convert.ToInt32(outNum));
+                        }
+                    }
+                }
+
+                BatchConfigurations.Add(BC);
+            }
+
         }
 
         /// <summary>
@@ -635,15 +708,18 @@ namespace HowLeaky
                 StringBuilder sb = new StringBuilder();
 
                 sb.Append("INSERT INTO OUTPUTS (Name, Description , Units, Controller) VALUES ");
-
-                foreach (OutputDataElement ode in OutputDataElements)
+                int counter = 0;
+                foreach (OutputDataElement ode in OutputDataElements.Where(j => j.IsSelected == true))//.Where(j => j.IsSelected == true)
                 {
                     string comma = ",";
 
-                    if (ode == OutputDataElements.First())
+                    //if (ode == OutputDataElements.First())
+                    if (counter == 0)
                     {
                         comma = "";
                     }
+
+                    counter += 1;
 
                     sb.Append(comma + "(\"" + ode.Name + "\",\"" + ode.Output.Description + "\",\"" + ode.Output.Unit + "\",\"" + ode.HLController.GetType().Name + "\")");
                 }
@@ -730,10 +806,11 @@ namespace HowLeaky
                 CurrentSimIndex++;
             }
 
-            if (result != null)
-            {
-                result.Index = Simulations.IndexOf(result) + 1;
-            }
+            //Now setting the Simulation.Index when we read the XML
+            //if (result != null)
+            //{
+            //    result.Index = Simulations.IndexOf(result) + 1;
+            //}
             return result;
         }
         /// <summary>
@@ -827,7 +904,7 @@ namespace HowLeaky
             //Update Progress
             if (this.QuietOutput == false)
             {
-                Console.Write("\r{0} % Done.", ((double)NoSimsComplete / SimulationElements.Count * 100).ToString("0.00"));
+                Console.Write("\r{0} % Done.", ((double)NoSimsComplete / Simulations.Count * 100).ToString("0.00"));
 
 
                 if (NoSimsComplete > Simulations.Count)

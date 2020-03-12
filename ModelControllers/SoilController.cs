@@ -203,53 +203,53 @@ namespace HowLeaky.ModelControllers
 
         //Reportable Outputs
         //Water balance outputs
-        [Output("Irrigation amount (mm) as calcaulted in irrigation module", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("Irrigation amount (mm) as calcaulted in irrigation module", "mm", 1, AggregationTypeEnum.Sum, 1001)]
         public double Irrigation { get; set; }
-        [Output("Total Runoff amount (mm) - includes runoff from rainfall AND irrigation.", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("Total Runoff amount (mm) - includes runoff from rainfall AND irrigation.", "mm", 1, AggregationTypeEnum.Sum, 1002)]
         public double Runoff { get; set; }
-        [Output("Runoff amount from irrigation", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("Runoff amount from irrigation", "mm", 1, AggregationTypeEnum.Sum, 1026)]
         public double RunoffFromIrrigation { get; set; }
-        [Output("Runoff amount from rainfall", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("Runoff amount from rainfall", "mm", 1, AggregationTypeEnum.Sum, 1957)]
         public double RunoffFromRainfall { get; set; }
-        [Output("Soil evaporation", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("Soil evaporation", "mm", 1, AggregationTypeEnum.Sum, 1004)]
         public double SoilEvap { get; set; }
-        [Output("Potential soil evaporation", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("Potential soil evaporation", "mm", 1, AggregationTypeEnum.Sum, 1040)]
         public double PotSoilEvap { get; set; }
-        [Output("Transpiration calculated from current crop", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("Transpiration calculated from current crop", "mm", 1, AggregationTypeEnum.Sum, 1006)]
         public double Transpiration { get; set; }
-        [Output("Transpiration PLUS soil evaporation.", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("Transpiration PLUS soil evaporation.", "mm", 1, AggregationTypeEnum.Sum, 1007)]
         public double EvapoTransp { get; set; }
-        [Output("The amount of drainge out of the bottom layer", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("The amount of drainge out of the bottom layer", "mm", 1, AggregationTypeEnum.Sum, 1009)]
         public double DeepDrainage { get; set; }
-        [Output("Overflow", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("Overflow", "mm", 1, AggregationTypeEnum.Sum, 1011)]
         public double Overflow { get; set; }
-        [Output("Lateral flow", "mm", 1, AggregationTypeEnum.Sum)]
+        [Output("Lateral flow", "mm", 1, AggregationTypeEnum.Sum, 1012)]
         public double LateralFlow { get; set; }
-        [Output("Volume Balance Error", "")]
+        [Output("Volume Balance Error", "", 7006)]
         public double VBE { get; set; }
-        [Output("Runoff curve number", "")]
+        [Output("Runoff curve number", "", 7002)]
         public double RunoffCurveNo { get; set; }
-        [Output("Runoff retention number", "")]
+        [Output("Runoff retention number", "", 7003)]
         public double RunoffRetentionNo { get; set; }
-        [Output("Hillslope erorsion", "t/ha", 1, AggregationTypeEnum.Sum)]
+        [Output("Hillslope erorsion", "t/ha", 1, AggregationTypeEnum.Sum, 1017)]
         public double HillSlopeErosion { get; set; }
-        [Output("Offsite sediment deliver", "t/ha", 1, AggregationTypeEnum.Sum)]
+        [Output("Offsite sediment delivery", "t/ha", 1, AggregationTypeEnum.Sum, 1099)]
         public double OffSiteSedDelivery { get; set; }
-        [Output("Sum of soil water in all layers", "mm")]
+        [Output("Sum of soil water in all layers", "mm", 1018)]
         public double TotalSoilWater { get; set; }
-        [Output("Soil water deficit", "mm")]
+        [Output("Soil water deficit", "mm", 2003)]
         public double SoilWaterDeficit { get; set; }
-        [Output("Layer 1 saturation index", "")]
+        [Output("Layer 1 saturation index", "", 2031)]
         public double Layer1SatIndex { get; set; }
-        [Output("Total crop residue  - sum of all crops present", "kg/ha")]
+        [Output("Total crop residue  - sum of all crops present", "kg/ha", 2004)]
         public double TotalCropResidue { get; set; }
-        [Output("Total residue cover - based on all crops present", "%")]
+        [Output("Total residue cover - based on all crops present", "%", 2005)]
         public double TotalResidueCover { get; set; }
-        [Output("Total cover - based on all crops present", "%")]
+        [Output("Total cover - based on all crops present", "%", 2008)]
         public double TotalCoverAllCrops { get; set; }
-        [Output("Soil water in each layer", "mm")]
+        [Output("Soil water in each layer", "mm", 2001)]
         public List<double> SoilWater { get; set; }
-        [Output("Drainage in each layer", "mm")]
+        [Output("Drainage in each layer", "mm", 2002)]
         public List<double> Drainage { get; set; }
 
 

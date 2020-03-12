@@ -81,7 +81,8 @@ namespace HowLeaky.ModelControllers.Tillage
         {
             bool check1 = Sim.VegetationController.InFallow();
             bool check2 = DateUtilities.IsDateInWindow(Sim.Today, InputModel.StartTillWindow, InputModel.EndTillWindow);
-            bool check3 = (TillageController.DaysSinceTillage >= InputModel.MinDaysBetweenTills || TillageController.DaysSinceTillage == -1);
+            //These changes by Rob essential, TillageController alone was throwing null reference
+            bool check3 = (Sim.TillageController.DaysSinceTillage >= InputModel.MinDaysBetweenTills || Sim.TillageController.DaysSinceTillage == -1);
             bool check4 = (Sim.ClimateController.SumRain(InputModel.NoDaysToTotalRain, 0) >= InputModel.RainForPrimaryTill);
             return check1 && check2 && check3 && check4;
         }

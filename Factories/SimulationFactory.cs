@@ -12,6 +12,9 @@ namespace HowLeaky.Factories
     {
         public static Simulation GenerateSimulationXML(Project Project, XElement simElement, List<InputModel> allModels)
         {
+            int theIdx = Convert.ToInt32(simElement.Attribute("ID").Value.ToString());
+
+
             List<InputModel> simModels = new List<InputModel>();
 
             int startYear = 0;
@@ -108,7 +111,7 @@ namespace HowLeaky.Factories
 
             }
 
-            return new Simulation(Project, simModels, startYear, endYear);
+            return new Simulation(Project, theIdx, simModels, startYear, endYear);
         }
     }
 }

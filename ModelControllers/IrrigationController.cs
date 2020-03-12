@@ -112,33 +112,33 @@ namespace HowLeaky.ModelControllers
         public double IrrigationRunoff { get; set; }
         [Output("Amount of water applied during irrigation", "mm")]
         public double IrrigationApplied { get; set; }
-        [Output("Amount of water which infiltrates into soil during irrigation", "mm")]
+        [Output("Amount of water which infiltrates into soil during irrigation", "mm", 1027)]
         public double IrrigationInfiltration { get; set; }
-        [Output("Ring-Tank Evaporation Losses", "ML")]
+        [Output("Ring-Tank Evaporation Losses", "ML", 11013)]
         public double RingTankEvaporationLosses { get; set; }
-        [Output("Ring-Tank Seepage Losses", "ML")]
+        [Output("Ring-Tank Seepage Losses", "ML", 11014)]
         public double RingTankSeepageLosses { get; set; }
-        [Output("Ring-Tank Overtopping Losses", "ML")]
+        [Output("Ring-Tank Overtopping Losses", "ML", 11015)]
         public double RingTankOvertoppingLosses { get; set; }
-        [Output("Ring-Tank Irrigation Losses", "ML")]
+        [Output("Ring-Tank Irrigation Losses", "ML", 11016)]
         public double RingTankIrrigationLosses { get; set; }
-        [Output("Ring-Tank Total Losses", "ML")]
+        [Output("Ring-Tank Total Losses", "ML", 11017)]
         public double RingTankTotalLosses { get; set; }
-        [Output("Ring-Tank Captured Runoff Inflow", "ML")]
+        [Output("Ring-Tank Captured Runoff Inflow", "ML", 11018)]
         public double RingTankRunoffCaptureInflow { get; set; }
-        [Output("Ring-Tank Rainfall Inflow", "ML")]
+        [Output("Ring-Tank Rainfall Inflow", "ML", 11019)]
         public double RingTankRainfalInflow { get; set; }
-        [Output("Ring-Tank Effective Additional Inflow", "ML")]
+        [Output("Ring-Tank Effective Additional Inflow", "ML", 11020)]
         public double RingTankEffectiveAdditionalInflow { get; set; }
-        [Output("Ring-Tank Total Additional Inflow", "ML")]
+        [Output("Ring-Tank Total Additional Inflow", "ML", 11021)]
         public double RingTankTotalAdditionalInflow { get; set; }
-        [Output("Ring-Tank Total Inflow", "ML")]
+        [Output("Ring-Tank Total Inflow", "ML", 11022)]
         public double RingTankTotalInflow { get; set; }
-        [Output("Ring-Tank Ineffective Additional Inflow", "ML")]
+        [Output("Ring-Tank Ineffective Additional Inflow", "ML", 11023)]
         public double RingTankIneffectiveAdditionalInflow { get; set; }
-        [Output("Ring-Tank Storage Volume", "ML")]
+        [Output("Ring-Tank Storage Volume", "ML", 11024)]
         public double RingTankStorageVolume { get; set; }
-        [Output("Ring-Tank storage Level", "%")]
+        [Output("Ring-Tank storage Level", "%", 11025)]
         public double RingTankStorageLevel { get; set; }
 
         /// <summary>                                                                     

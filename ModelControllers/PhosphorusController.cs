@@ -34,29 +34,29 @@ namespace HowLeaky.ModelControllers
         //public PhosphorusOutputDataModel Output { get; set; }
 
         //Reportable Outputs
-        [Output("Particulate P Conc", "mg/l")]
+        [Output("Particulate P Conc", "mg/l", 6001)]
         public double ParticulateConc { get; set; }        
-        [Output("Dissolved P Conc", "mg/l")]
+        [Output("Dissolved P Conc", "mg/l", 6002)]
         public double DissolvedConc { get; set; }          
-        [Output("Bioavailable particulate P Conc", "mg/l")]
+        [Output("Bioavailable particulate P Conc", "mg/l", 6003)]
         public double BioAvailParticPConc { get; set; }    
-        [Output("Bioavailable P Conc", "mg/l")]
+        [Output("Bioavailable P Conc", "mg/l", 6004)]
         public double BioAvailPConc { get; set; }          
-        [Output("Total P Conc", "mg/l")]
+        [Output("Total P Conc", "mg/l", 6005)]
         public double TotalPConc { get; set; }             
-        [Output("Particulate P export", "kg/ha")]
+        [Output("Particulate P export", "kg/ha", 6006)]
         public double ParticPExport { get; set; }          
-        [Output("Bioavailable particulate P export", "kg/ha")]
+        [Output("Bioavailable particulate P export", "kg/ha", 6008)]
         public double BioAvailParticPExport { get; set; } 
-        [Output("Bioavailable P export", "kg/ha")]
+        [Output("Bioavailable P export", "kg/ha", 6009)]
         public double TotalBioAvailExport { get; set; }   
-        [Output("Total Phosphorus export", "kg/ha")]
-        public double TotalP { get; set; }                
-        //[Output("", "t/ha")]
+        [Output("Total Phosphorus export", "kg/ha", 6010)]
+        public double TotalP { get; set; }
+        //[Output("CKQ", "t/ha", 6011)]
         //public double CKQ { get; set; }
-        [Output("", "kg/ha")]
+        [Output("PPHLC", "kg/ha", 6012)]
         public double PPHLC { get; set; }
-        [Output("","kg/ha" )]
+        [Output("Dissolved P Export","kg/ha" , 6007)]
         public double PhosExportDissolve { get; set; }
         /// <summary>
         /// 

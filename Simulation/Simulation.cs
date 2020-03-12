@@ -212,9 +212,11 @@ namespace HowLeaky
         /// 
         /// </summary>
         /// <param name="inputDataModels"></param>
-        public Simulation(Project Project, List<InputModel> inputDataModels, int startYear = 0, int endYear = 0) : this()
+        public Simulation(Project Project, int theIdx, List<InputModel> inputDataModels, int startYear = 0, int endYear = 0) : this()
         {
             this.Project = Project;
+
+            Index = theIdx;
 
             StartYear = startYear;
             EndYear = EndYear;

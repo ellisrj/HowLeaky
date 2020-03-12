@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BatchConfiguration\BatchConfiguration.cs" />
     <Compile Include="CustomAttributes\Alias.cs" />
     <Compile Include="CustomAttributes\Input.cs" />
     <Compile Include="CustomAttributes\Internal.cs" />

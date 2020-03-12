@@ -21,23 +21,23 @@ namespace HowLeaky.ModelControllers
         public double NitrateCumRain { get; set; } = 0;
 
         //Reportable Outputs
-        [Output("Dissolved NO3 N In Runoff", "mg/L",1, AggregationTypeEnum.Max)]
+        [Output("Dissolved NO3 N In Runoff", "mg/L",1, AggregationTypeEnum.Max, 6501)]
         public double NO3NDissolvedInRunoff { get; set; }
-        [Output("NO3 Runoff Load", "kg/ha")]
+        [Output("NO3 Runoff Load", "kg/ha", 6502)]
         public double NO3NRunoffLoad { get; set; }
-        [Output("Dissolved NO3 N In Leaching", "mg/L")]
+        [Output("Dissolved NO3 N In Leaching", "mg/L", 6503)]
         public double NO3NDissolvedLeaching { get; set; }
-        [Output("NO3 N Leaching Load", "kg/ha")]
+        [Output("NO3 N Leaching Load", "kg/ha", 6504)]
         public double NO3NLeachingLoad { get; set; }
-        [Output("Particulate N in Runoff", "kg/ha")]
+        [Output("Particulate N in Runoff", "kg/ha", 6505)]
         public double ParticNInRunoff { get; set; }
-        [Output("NO3 N Store in top layer", "kg/ha")]
+        [Output("NO3 N Store in top layer", "kg/ha", 6507)]
         public double NO3NStoreTopLayer { get; set; }
-        [Output("NO3 N Store in bot layer", "kg/ha")]
+        [Output("NO3 N Store in bot layer", "kg/ha", 6508)]
         public double NO3NStoreBotLayer { get; set; }
-        [Output("Total N Store in top layer", "kg/ha")]
+        [Output("Total N Store in top layer", "kg/ha", 6509)]
         public double TotalNStoreTopLayer { get; set; }
-        [Output("PNHLC", "kg/ha")]
+        [Output("PNHLC", "kg/ha", 6506)]
         public double PNHLCa { get; set; }
         [Output("", "")]
         public double DrainageInNO3Period { get; set; }

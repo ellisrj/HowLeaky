@@ -40,37 +40,37 @@ namespace HowLeaky.ModelControllers.Pesticide
         }
 
         //Reportable Outputs
-        [Output("Applied pest on veg", "g/ha")]
+        [Output("Applied pest on veg", "g/ha", 5001)]
         public double AppliedPestOnVeg { get; set; }
-        [Output("Applied pest on stubble", "g/ha")]
+        [Output("Applied pest on stubble", "g/ha", 5002)]
         public double AppliedPestOnStubble { get; set; }
-        [Output("Applied pest on soil", "(g/ha")]
+        [Output("Applied pest on soil", "(g/ha", 5003)]
         public double AppliedPestOnSoil { get; set; }
-        [Output("Pest on veg", "g/ha")]
+        [Output("Pest on veg", "g/ha", 5004)]
         public double PestOnVeg { get; set; }
-        [Output("Pest on stubble", "g/ha")]
+        [Output("Pest on stubble", "g/ha", 5005)]
         public double PestOnStubble { get; set; }
-        [Output("Pest in soil", "g/ha")]
+        [Output("Pest in soil", "g/ha", 5006)]
         public double PestInSoil { get; set; }
-        [Output("Pest soil conc.", "mg/kg")]
+        [Output("Pest soil conc.", "mg/kg", 5007)]
         public double PestSoilConc { get; set; }
-        [Output("Pest sediment phase conc.", "mg/kg")]
+        [Output("Pest sediment phase conc.", "mg/kg", 5008)]
         public double PestSedPhaseConc { get; set; }
-        [Output("Pest water phase conc.", "ug/L")]
+        [Output("Pest water phase conc.", "ug/L", 5009)]
         public double PestWaterPhaseConc { get; set; }
-        [Output("Pest runoff conc. (water+sediment)", "ug/L")]
+        [Output("Pest runoff conc. (water+sediment)", "ug/L", 5010)]
         public double PestRunoffConc { get; set; }
-        //[Output("Sediment delivered", "g/L")]
+        //[Output("Sediment delivered", "g/L", 5011)]
         //public double SedimentDelivered { get; set; }
-        [Output("Pest lost in runoff water", "g/ha")]
+        [Output("Pest lost in runoff water", "g/ha", 5012)]
         public double PestLostInRunoffWater { get; set; }
-        [Output("Pest lost in runoff sediment", "g/ha")]
+        [Output("Pest lost in runoff sediment", "g/ha", 5013)]
         public double PestLostInRunoffSediment { get; set; }
-        [Output("Total pest lost in runoff", "g/ha")]
+        [Output("Total pest lost in runoff", "g/ha", 5014)]
         public double TotalPestLostInRunoff { get; set; }
-        [Output("Pest lost in leaching", "g/ha")]
+        [Output("Pest lost in leaching", "g/ha", 5015)]
         public double PestLostInLeaching { get; set; }
-        [Output("Pest losses as percent of last input", "%")]
+        [Output("Pest losses as percent of last input", "%", 5016)]
         public double PestLossesPercentOfInput { get; set; }
         [Output("Number of applications", "")]
         public double ApplicationCount { get; set; }

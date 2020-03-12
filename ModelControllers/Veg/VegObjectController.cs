@@ -67,6 +67,7 @@ namespace HowLeaky.ModelControllers.Veg
         public double TotalTranspiration { get; set; }
 
         //These should be reported
+        [Output("Crop Stage", "", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop, 7001)]
         public double CropStage { get; set; }
         public double CropCover { get; set; }
         public double CropCoverPercent { get; set; }
@@ -82,31 +83,31 @@ namespace HowLeaky.ModelControllers.Veg
         public double AccumulatedTranspiration { get; set; }
 
         //Reportable Outputs
-        [Output(" Days since planting", "days", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop)]
+        [Output(" Days since planting", "days", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop, 4001)]
         public int DaysSincePlanting { get; set; }
-        [Output("Leaf area index", "LAI", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop)]
+        [Output("Leaf area index", "LAI", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop, 4002)]
         public double LAI { get; set; }
-        [Output("Living vegetation cover expressed as a percentage of total area", "%", 100)]
+        [Output("Living vegetation cover expressed as a percentage of total area", "%", 100, 4003)]
         public double GreenCover { get; set; }
-        [Output("Dead vegetation cover expressed as a percentage of total area", "%", 100)]
+        [Output("Dead vegetation cover expressed as a percentage of total area", "%", 100, 4006)]
         public double ResidueCover { get; set; }
-        [Output("Living and dead cover, calculated using Beer's Law, and expressed as a percentage of total area", "%", 100)]
+        [Output("Living and dead cover, calculated using Beer's Law, and expressed as a percentage of total area", "%", 100, 4004)]
         public double TotalCover { get; set; }
-        [Output("Residue biomass amount", "kg/ha")]
+        [Output("Residue biomass amount", "kg/ha", 4005)]
         public double ResidueAmount { get; set; }
-        [Output("Cumulative dry matter", "kg/ha", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop)]
+        [Output("Cumulative dry matter", "kg/ha", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop, 4007)]
         public double DryMatter { get; set; }
-        [Output("Root depth", "mm", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop)]
+        [Output("Root depth", "mm", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop, 4008)]
         public double RootDepth { get; set; }
-        [Output("Yield", "t/h", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop)]
+        [Output("Yield", "t/h", 1, AggregationTypeEnum.Current, AggregationSequenceEnum.InCrop, 4009)]
         public double Yield { get; set; }
-        [Output("Potential transpiration", "mm", 1, AggregationTypeEnum.Sum, AggregationSequenceEnum.InCrop)]
+        [Output("Potential transpiration", "mm", 1, AggregationTypeEnum.Sum, AggregationSequenceEnum.InCrop, 4010)]
         public double PotTranspiration { get; set; }
-        [Output("Growth regulator")]
+        [Output("Growth regulator", 4011)]
         public double GrowthRegulator { get; set; }
-        [Output("Water stress index")]
+        [Output("Water stress index", 7004)]
         public double WaterStressIndex { get; set; }
-        [Output("Temperature stress index")]
+        [Output("Temperature stress index", 7005)]
         public double TempStressIndex { get; set; }
         [Output("Crop Rainfall", "mm", 1, AggregationTypeEnum.Sum)]
         public double CropRainfall { get; set; }

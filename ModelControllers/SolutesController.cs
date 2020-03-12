@@ -41,17 +41,17 @@ namespace HowLeaky.ModelControllers
         //public SolutesOutputDataModel Output { get; set; }
 
         //Reportable Outputs
-        [Output("Total Soil Solute(Load)","kg/ha")]
+        [Output("Total Soil Solute(Load)","kg/ha", 6701)]
         public double TotalSoilSolute { get; set; }
-        [Output("Layer Solute (Load)", "kg/ha")]
+        [Output("Layer Solute (Load)", "kg/ha", 6703)]
         public List<double> LayerSoluteLoad { get; set; }          
-        [Output("Layer Solute (Conc)","mg/L")]
+        [Output("Layer Solute (Conc. Vol)","mg/L", 6704)]
         public List<double> LayerSoluteConcmgPerL { get; set; }    
-        [Output("Layer Solute (Conc)", "mg/kg")]
+        [Output("Layer Solute (Conc. Mass)", "mg/kg", 6705)]
         public List<double> LayerSoluteConcmgPerkg { get; set; }   
-        [Output("Leachate Solute Concentration", "mg/L")]
+        [Output("Leachate Solute Concentration", "mg/L", 6706)]
         public double LeachateSoluteConcmgPerL { get; set; }       
-        [Output("Leachate Solute Load", "kg/ha")]
+        [Output("Leachate Solute Load", "kg/ha", 6707)]
         public double LeachateSoluteLoadkgPerha { get; set; }      
                                                                                     
         /// <summary>
